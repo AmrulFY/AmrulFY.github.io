@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Amrul Fadhil Yofan - Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Hero Section Start -->
+    <div class="hero" id="home">
+        <nav>
+            <h2 class="logo">Amrul <span>Portfolio</span></h2>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#project">Project</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <h4>Hello, my name is</h4>
+            <h1>Amrul Fadhil <span>Yofan</span></h1>
+            <h3>Data Scientist, Machine Learning & Cryptography Enthusiast</h3>
+            <button class="btn" onclick="scrollToSection('project')">View My Work</button>
+        </div>
+    </div>
+    <!-- Hero Section End -->
+
+    <!-- About Section Start -->
+    <section class="about" id="about">
+        <div class="main">
+            <img src="img/ft.png" alt="Amrul Fadhil Yofan">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <p>I am a Mathematics graduate from Universitas Gadjah Mada with a strong passion for data science, machine learning, and data analytics, as well as mathematical cryptography research. With a solid background in analytical thinking and problem-solving, I am eager to explore how data can enhance decision-making and drive business growth.</p>
+                <button onclick="scrollToSection('contact')">Let's Talk</button>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Project Section Start -->
+    <div class="project" id="project">
+        <div class="title">
+            <h2>My Projects</h2>
+        </div>
+
+        <div class="box">
+            <div class="card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h5>Weather Data Prediction</h5>
+                <p>Time series forecasting model for weather data analysis, utilizing machine learning techniques.</p>
+                <a class="button" href="https://github.com/AmrulFY/Submission-Time-Series-123" target="_blank">View on GitHub</a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-newspaper"></i>
+                <h5>Fake News Detection</h5>
+                <p>Natural Language Processing (NLP) model to classify fake and real news using machine learning.</p>
+                <a class="button" href="https://github.com/AmrulFY/Submission-Model-NLP-123" target="_blank">View on GitHub</a>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-image"></i>
+                <h5>Image Classification</h5>
+                <p>Deep learning model for image recognition and classification using CNN.</p>
+                <a class="button" href="https://github.com/AmrulFY/Submission-Image-Classification-Model-Deployment-123" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </div>
+    <!-- Project Section End -->
+
+    <!-- Skills Section Start -->
+    <div class="skills" id="skills">
+        <div class="title">
+            <h2>My Skills</h2>
+        </div>
+
+        <div class="box">
+            <div class="card">
+                <i class="fa-brands fa-python"></i>
+                <div class="pra">
+                    <p>Python (Pandas, NumPy, Scikit-learn, PyTorch, TensorFlow)</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-brain"></i>
+                <div class="pra">
+                    <p>Machine Learning & Deep Learning</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-chart-pie"></i>
+                <div class="pra">
+                    <p>Data Visualization (Matplotlib, Seaborn, PowerBI)</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fa-brands fa-html5"></i>
+                <div class="pra">
+                    <p>Web Development (HTML, CSS, JavaScript)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="box">
+            <div class="card">
+                <i class="fa-brands fa-html5"></i>
+                <h5>HTML</h5>
+                <div class="pra">
+                    <p>Proficient in creating structured and semantic HTML documents.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa-brands fa-css3-alt"></i>
+                <h5>CSS</h5>
+                <div class="pra">
+                    <p>Experienced in styling websites with CSS and frameworks like Bootstrap.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <i class="fa-brands fa-js"></i>
+                <h5>JavaScript</h5>
+                <div class="pra">
+                    <p>Skilled in building interactive web applications using JavaScript.</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <!-- Skills Section End -->
+
+    <!-- Contact Start -->
+    <div class="contact" id="contact">
+        <p>Interested in collaborating? Let's connect.</p>
+        <a class="button2" href="mailto:amrul.yofan@gmail.com">Email Me</a>
+    </div>
+    <!-- Contact End -->
+
+    <!-- Footer Start -->
+    <footer>
+        <p>Amrul Fadhil Yofan</p>
+        <p>Find me on:</p>
+        <div class="social">
+            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com/amrulyofan" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/amrul-fadhil-yofan-971048227" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/AmrulFY" target="_blank"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <p class="end">&copy; 2024 Amrul Fadhil Yofan. All rights reserved.</p>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling
+        document.querySelector('.newsletter form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('mail').value;
+            if (email) {
+                alert(`Thank you for subscribing, ${email}!`);
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
