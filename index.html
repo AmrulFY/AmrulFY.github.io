@@ -6,6 +6,10 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -15,21 +19,28 @@
     <!-- Hero Section Start -->
     <div class="hero" id="home">
         <nav>
-            <h2 class="logo">Amrul <span>Portfolio</span></h2>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#project">Project</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <div data-aos="fade-up">
+                <h2 class="logo">Amrul <span>Portfolio</span></h2>
+            </div>
+            <ul class="nav-link">
+                <div data-aos="fade-up" data-aos-delay="100"><li><a href="#home">Home</a></li></div>
+                <div data-aos="fade-up" data-aos-delay="200"><li><a href="#about">About</a></li></div>
+                <div data-aos="fade-up" data-aos-delay="300"><li><a href="#project">Project</a></li></div>
+                <div data-aos="fade-up" data-aos-delay="400"><li><a href="#skills">Skills</a></li></div>
+                <div data-aos="fade-up" data-aos-delay="500"><li><a href="#contact">Contact</a></li></div>
             </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
 
         <div class="content">
-            <h4>Hello, my name is</h4>
-            <h1>Amrul Fadhil <span>Yofan</span></h1>
-            <h3>Data Scientist, Machine Learning & Cryptography Enthusiast</h3>
-            <button class="btn" onclick="scrollToSection('project')">View My Work</button>
+            <div data-aos="fade-up" data-aos-delay="600">
+                <h4>Hello, my name is</h4>
+                <h1>Amrul Fadhil <span>Yofan</span></h1>
+                <h3>Data Scientist, Machine Learning & Cryptography Enthusiast</h3>
+                <button class="btn" onclick="scrollToSection('project')">View My Work</button>
+            </div>
         </div>
     </div>
     <!-- Hero Section End -->
@@ -37,8 +48,10 @@
     <!-- About Section Start -->
     <section class="about" id="about">
         <div class="main">
-            <img src="img/ft.png" alt="Amrul Fadhil Yofan">
-            <div class="about-text">
+            <div data-aos="fade-up" data-aos-delay="100">
+                <img src="img/ft.png" alt="Amrul Fadhil Yofan">
+            </div>
+            <div class="about-text" data-aos="fade-up" data-aos-delay="200">
                 <h2>About Me</h2>
                 <p>I am a Mathematics graduate from Universitas Gadjah Mada with a strong passion for data science, machine learning, and data analytics, as well as mathematical cryptography research. With a solid background in analytical thinking and problem-solving, I am eager to explore how data can enhance decision-making and drive business growth.</p>
                 <button onclick="scrollToSection('contact')">Let's Talk</button>
@@ -49,124 +62,119 @@
 
     <!-- Project Section Start -->
     <div class="project" id="project">
-        <div class="title">
+        <div class="title" data-aos="fade-up">
             <h2>My Projects</h2>
         </div>
 
         <div class="box">
             <div class="card">
-                <i class="fa-solid fa-chart-line"></i>
-                <h5>Weather Data Prediction</h5>
-                <div class="pra">
-                    <p>Time series forecasting model for weather data analysis, utilizing machine learning techniques.</p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h5>Weather Data Prediction</h5>
+                    <div class="pra">
+                        <p>Time series forecasting model for weather data analysis, utilizing machine learning techniques.</p>
+                    </div>
+                    <a class="button" href="https://github.com/AmrulFY/Submission-Time-Series-123" target="_blank">View on GitHub</a>
                 </div>
-                <a class="button" href="https://github.com/AmrulFY/Submission-Time-Series-123" target="_blank">View on GitHub</a>
             </div>
             <div class="card">
-                <i class="fa-solid fa-newspaper"></i>
-                <h5>Fake News Detection</h5>
-                <div class="pra">
-                    <p>Natural Language Processing (NLP) model to classify fake and real news using machine learning.</p>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <h5>Fake News Detection</h5>
+                    <div class="pra">
+                        <p>Natural Language Processing (NLP) model to classify fake and real news using machine learning.</p>
+                    </div>
+                    <a class="button" href="https://github.com/AmrulFY/Submission-Model-NLP-123" target="_blank">View on GitHub</a>
                 </div>
-                <a class="button" href="https://github.com/AmrulFY/Submission-Model-NLP-123" target="_blank">View on GitHub</a>
             </div>
             <div class="card">
-                <i class="fa-solid fa-image"></i>
-                <h5>Image Classification</h5>
-                <div class="pra">
-                    <p>Deep learning model for image recognition and classification using CNN.</p>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-image"></i>
+                    <h5>Image Classification</h5>
+                    <div class="pra">
+                        <p>Deep learning model for image recognition and classification using CNN.</p>
+                    </div>
+                    <a class="button" href="https://github.com/AmrulFY/Submission-Image-Classification-Model-Deployment-123" target="_blank">View on GitHub</a>
                 </div>
-                <a class="button" href="https://github.com/AmrulFY/Submission-Image-Classification-Model-Deployment-123" target="_blank">View on GitHub</a>
-            </div>
+            </div> 
         </div>
     </div>
     <!-- Project Section End -->
 
     <!-- Skills Section Start -->
     <div class="skills" id="skills">
-        <div class="title">
+        <div class="title" data-aos="fade-up">
             <h2>My Skills</h2>
         </div>
 
         <div class="box">
             <div class="card">
-                <i class="fa-brands fa-python"></i>
-                <div class="pra">
-                    <p>Python (Pandas, NumPy, Scikit-learn, PyTorch, TensorFlow)</p>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <i class="fa-brands fa-python"></i>
+                    <div class="pra">
+                        <h5>Python</h5>
+                        <p>Pandas, NumPy, SciPy, Math</p>
+                    </div>
                 </div>
             </div>
             <div class="card">
-                <i class="fa-solid fa-brain"></i>
-                <div class="pra">
-                    <p>Machine Learning & Deep Learning</p>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <i class="fa-solid fa-brain"></i>
+                    <div class="pra">
+                        <h5>Machine Learning & Deep Learning</h5>
+                        <p>Scikit-learn, PyTorch, TensorFlow</p>
+                    </div>
                 </div>
             </div>
             <div class="card">
-                <i class="fa-solid fa-chart-pie"></i>
-                <div class="pra">
-                    <p>Data Visualization (Matplotlib, Seaborn, PowerBI)</p>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <div class="pra">
+                        <h5>Data Visualization</h5>
+                        <p>Matplotlib, Seaborn, PowerBI</p>
+                    </div>
                 </div>
             </div>
             <div class="card">
-                <i class="fa-brands fa-html5"></i>
-                <div class="pra">
-                    <p>Web Development (HTML, CSS, JavaScript)</p>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <i class="fa-brands fa-html5"></i>
+                    <div class="pra">
+                        <h5>Web Development</h5>
+                        <p>HTML, CSS, JavaScript</p>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- <div class="box">
-            <div class="card">
-                <i class="fa-brands fa-html5"></i>
-                <h5>HTML</h5>
-                <div class="pra">
-                    <p>Proficient in creating structured and semantic HTML documents.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <i class="fa-brands fa-css3-alt"></i>
-                <h5>CSS</h5>
-                <div class="pra">
-                    <p>Experienced in styling websites with CSS and frameworks like Bootstrap.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <i class="fa-brands fa-js"></i>
-                <h5>JavaScript</h5>
-                <div class="pra">
-                    <p>Skilled in building interactive web applications using JavaScript.</p>
-                </div>
-            </div>
-        </div> -->
     </div>
     <!-- Skills Section End -->
 
-    <!-- Contact Start -->
+    <!-- Contact Section Start -->
     <div class="contact" id="contact">
-        <p>Interested in collaborating? Let's connect.</p>
-        <a class="button2" href="mailto:amrul.yofan@gmail.com">Email Me</a>
+        <div data-aos="fade-up">
+            <p>Interested in collaborating? Let's connect.</p>
+        </div>
+        <div data-aos="fade-up" data-aos-delay="100">
+            <a class="button2" href="mailto:amrul.yofan@gmail.com">Email Me</a>
+        </div>
     </div>
-    <!-- Contact End -->
+    <!-- Contact Section End -->
 
     <!-- Footer Start -->
     <footer>
-        <p>Amrul Fadhil Yofan</p>
-        <p>Find me on:</p>
+        <p data-aos="fade-up">Amrul Fadhil Yofan</p>
+        <p data-aos="fade-up">Find me on:</p>
         <div class="social">
-            <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://instagram.com/amrulyofan" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/amrul-fadhil-yofan-971048227" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/AmrulFY" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <div data-aos="fade-up" data-aos-delay="200"><a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></div>
+            <div data-aos="fade-up" data-aos-delay="300"><a href="https://instagram.com/amrulyofan" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+            <div data-aos="fade-up" data-aos-delay="400"><a href="https://www.linkedin.com/in/amrul-fadhil-yofan-971048227" target="_blank"><i class="fa-brands fa-linkedin"></i></a></div>
+            <div data-aos="fade-up" data-aos-delay="500"><a href="https://github.com/AmrulFY"><i class="fa-brands fa-github" target="_blank"></i></a></div>
         </div>
-        <p class="end">&copy; 2024 Amrul Fadhil Yofan. All rights reserved.</p>
+        <p class="end">&copy; 2024 Amrul Fadhil Yofan</p>    
     </footer>
     <!-- Footer End -->
 
-    <!-- JavaScript for Interactivity -->
     <script>
-        // Smooth scrolling for anchor links
+    // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -190,6 +198,19 @@
         function scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
+
+        const aboutSection = document.querySelector('.about');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                aboutSection.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        });
+
+        observer.observe(aboutSection);
     </script>
+    <script src="main.js" type="text/javascript"></script>
 </body>
 </html>
