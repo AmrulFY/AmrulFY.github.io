@@ -1,8 +1,8 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": "./dist",
-      "url": ["http://localhost/index.html"],
+      "staticDistDir": "./portfolio-astro/dist",
+      "url": ["http://localhost/"],
       "numberOfRuns": 3
     },
     "assert": {
