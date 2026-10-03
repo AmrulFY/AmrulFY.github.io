@@ -13,7 +13,7 @@ jobs:
       run:
         working-directory: portfolio-astro
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -28,7 +28,7 @@ jobs:
     needs: lint-check-build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: lycheeverse/lychee-action@v2
         with:
           args: --verbose --no-progress --exclude 'yourcode.goatcounter.com' './portfolio-astro/src/**/*.md' './portfolio-astro/src/**/*.astro'
@@ -41,7 +41,7 @@ jobs:
       run:
         working-directory: portfolio-astro
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: 22
