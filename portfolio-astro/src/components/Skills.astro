@@ -1,0 +1,113 @@
+---
+import { site } from '../data/site';
+
+// Icon SVGs per skill category
+const icons: Record<string, string> = {
+  Python: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05L0 11.97l.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.26-.02.2-.01h5.33V5h-6.1l-.28.06-.32.12-.35.2-.36.3-.35.42-.32.56-.27.72-.2.9-.1 1.07-.02 1.27.1 1.41.23 1.29.35 1.15.46 1.01.54.88.6.76.65.64.69.53.7.43.7.34.67.25.63.18.56.12.48.07.39.03.29.01H13.5l.28-.06.32-.12.35-.2.36-.3.35-.42.32-.56.27-.72.2-.9.1-1.07.02-1.27V8.5l-.05-.63-.13-.55-.21-.46-.26-.38-.3-.31-.33-.25-.35-.19-.35-.14-.33-.1-.3-.07-.26-.04-.21-.02H9.5V6h4.75l.3.01.27.04.24.06.22.1.18.13.15.18.1.22.07.27.04.32.02.37v.69l-.01.37-.04.32-.08.28-.12.24-.17.2-.22.16-.28.12-.35.08-.43.04H9.5v1.5h4.75l.3.01.27.04.24.06.22.1.18.13.15.18.1.22.07.27.04.32.02.37V12h-.01l-.04.32-.08.28-.12.24-.17.2-.22.16-.28.12-.35.08-.43.04H9.5V14h5.25l.3-.01.27-.04.24-.06.22-.1.18-.13.15-.18.1-.22.07-.27.04-.32.02-.37v-1.69l.01-.37.04-.32.08-.28.12-.24.17-.2.22-.16.28-.12.35-.08.43-.04h.75l.43.04.35.08.28.12.22.16.17.2.12.24.08.28.04.32.01.37V14h.01v.56l-.02.5-.05.46-.1.42-.15.38-.2.34-.26.3-.32.27-.38.23-.44.19-.5.15-.56.1-.62.06-.68.02H9.5V17h-2V5.5H3.5v2H7V9H3.5v1.5H7V12H3.5v1.5H7V15H3.5v1.5H7V18H2v-6l.04-.49.12-.48.18-.45.24-.41.28-.37.31-.33.33-.28.34-.24.34-.19.32-.15.3-.1.25-.07.21-.04.15-.01H5.5V4h9.5l.44.02.38.04.32.07.26.1.2.14.14.17.1.22.05.26.02.31-.02.37-.05.32-.1.28-.14.22-.18.17-.22.12-.26.08-.3.04-.34.01H14z"/></svg>`,
+  'ML & Deep Learning': `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 22A10 10 0 0 1 2 12"/><path d="M12 6v2"/><path d="M12 16v2"/><path d="M6 12H4"/><path d="M20 12h-2"/><path d="M7.76 7.76 6.34 6.34"/><path d="M17.66 17.66l-1.42-1.42"/><path d="M7.76 16.24l-1.42 1.42"/><path d="M17.66 6.34l-1.42 1.42"/></svg>`,
+  'Data Visualization': `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
+  Web: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+};
+
+const defaultIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`;
+---
+
+<section id="skills" aria-label="Skills and technologies">
+  <div class="container">
+    <p class="section-label">Technical Skills</p>
+    <h2>What I Work With</h2>
+
+    <div class="skills-grid">
+      {site.skills.map((s, i) => (
+        <div
+          class="skill-card card-glass"
+          style={`animation-delay: ${i * 80}ms`}
+        >
+          <div class="skill-icon" set:html={icons[s.name] ?? defaultIcon} />
+          <div class="skill-info">
+            <h3>{s.name}</h3>
+            <ul class="skill-items" aria-label={`${s.name} tools`}>
+              {s.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+
+  .skill-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  /* Icon */
+  .skill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    border-radius: var(--radius);
+    background: var(--accent-glow);
+    border: 1px solid var(--line-hover);
+    color: var(--accent);
+    transition:
+      background var(--dur) var(--ease),
+      color var(--dur) var(--ease);
+  }
+
+  .skill-card:hover .skill-icon {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* Info */
+  .skill-info h3 {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding: 0;
+  }
+
+  .skill-items li {
+    font-size: var(--fs-xs);
+    color: var(--muted);
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-full);
+    padding: 0.15rem 0.6rem;
+    transition:
+      color var(--dur) var(--ease),
+      border-color var(--dur) var(--ease);
+  }
+
+  .skill-card:hover .skill-items li {
+    color: var(--ink-2);
+    border-color: var(--line-hover);
+  }
+</style>

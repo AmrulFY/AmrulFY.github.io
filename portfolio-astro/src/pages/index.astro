@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Base>
+  <Nav />
+  <main id="main">
+    <Hero />
+    <About />
+
+    <section id="projects" aria-label="My projects">
+      <div class="container">
+        <p class="section-label">Portfolio</p>
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+          {projects.map((p) => (
+            <ProjectCard project={p} />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <Skills />
+    <Contact />
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  #projects h2 {
+    margin-bottom: 3rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  }
+</style>

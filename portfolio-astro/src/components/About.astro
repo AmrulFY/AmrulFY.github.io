@@ -1,0 +1,196 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="about" aria-label="About me">
+  <div class="container about-inner">
+    <!-- Stats sidebar -->
+    <div class="stats-col">
+      <div class="stats-card card-glass">
+        <div class="stat">
+          <span class="stat-num">2024</span>
+          <span class="stat-label">UGM Graduate</span>
+        </div>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">ML Projects</span>
+        </div>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Curiosity</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text content -->
+    <div class="about-text">
+      <p class="section-label">About Me</p>
+      <h2>Data meets Mathematics</h2>
+
+      <p>
+        I'm a Mathematics graduate from <strong>Universitas Gadjah Mada</strong>{' '}
+        with a strong passion for
+        <strong>data science</strong>, <strong>machine learning</strong>, and
+        <strong>mathematical cryptography research</strong>. I love uncovering
+        patterns in complex data and turning them into actionable insights.
+      </p>
+
+      <p style="margin-top: 1.25rem;">
+        Beyond building predictive models, I explore the mathematical
+        foundations of cryptography — bridging pure mathematics with practical
+        security. I also run
+        <a
+          href={site.links.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @simplemath_id
+        </a>
+        , an Instagram channel making math accessible to everyone.
+      </p>
+
+      <div class="about-tags">
+        {[
+          'Data Science',
+          'Machine Learning',
+          'Deep Learning',
+          'NLP',
+          'Time Series',
+          'Cryptography',
+          'Analytics',
+        ].map((tag) => (
+          <span class="tag">{tag}</span>
+        ))}
+      </div>
+
+      <a class="btn" href="#contact" style="margin-top: 2rem;">
+        Let's Connect
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-inner {
+    display: grid;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (min-width: 56rem) {
+    .about-inner {
+      grid-template-columns: auto 1fr;
+      gap: 4rem;
+    }
+  }
+
+  /* ---- Stats card ---- */
+  .stats-card {
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 240px;
+  }
+
+  @media (max-width: 55.99rem) {
+    .stats-card {
+      max-width: 100%;
+      flex-direction: row;
+      align-items: center;
+    }
+    .divider {
+      width: 1px;
+      height: 3rem;
+      background: var(--line);
+      flex-shrink: 0;
+    }
+  }
+
+  @media (min-width: 56rem) {
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin-block: 1.25rem;
+    }
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+    text-align: center;
+  }
+
+  @media (min-width: 56rem) {
+    .stat {
+      text-align: left;
+    }
+  }
+
+  .stat-num {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ---- About text ---- */
+  .about-text h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p {
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+
+  .about-text strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  /* ---- Tags ---- */
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.75rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.3rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    background: var(--accent-glow);
+    border: 1px solid var(--line-hover);
+    color: var(--accent-2);
+    transition:
+      background var(--dur) var(--ease),
+      color var(--dur) var(--ease);
+  }
+
+  .tag:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+</style>

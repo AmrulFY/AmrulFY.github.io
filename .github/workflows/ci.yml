@@ -1,0 +1,55 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+
+jobs:
+  lint-check-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: portfolio-astro
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: portfolio-astro/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run check
+      - run: npm run build
+
+  links:
+    needs: lint-check-build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress './portfolio-astro/src/**/*.md' './portfolio-astro/src/**/*.astro'
+          fail: true
+
+  lighthouse:
+    needs: lint-check-build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: portfolio-astro
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: portfolio-astro/package-lock.json
+      - run: npm ci
+      - run: npm run build
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./portfolio-astro/.lighthouserc.json

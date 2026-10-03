@@ -1,0 +1,95 @@
+/* =============================================
+   DESIGN TOKENS — AmrulFY Portfolio
+   Dark-first, with light mode via data-theme
+   ============================================= */
+
+:root,
+[data-theme='dark'] {
+  /* Background layers */
+  --bg: #0a0f1e;
+  --bg-raised: #111827;
+  --surface: rgba(17, 24, 39, 0.7);
+  --surface-solid: #111827;
+
+  /* Text */
+  --ink: #f0f4ff;
+  --ink-2: #b0bdd6;
+  --muted: #6b7fa3;
+
+  /* Borders & lines */
+  --line: rgba(255, 255, 255, 0.08);
+  --line-hover: rgba(56, 189, 248, 0.32);
+
+  /* Accent – electric indigo -> sky (muted, less neon) */
+  --accent: #7c6ff7;
+  --accent-2: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.14);
+  --accent-ink: #ffffff;
+
+  /* Grid overlay tint */
+  --grid: rgba(56, 189, 248, 0.05);
+
+  /* Nav */
+  --nav-bg: rgba(10, 15, 30, 0.85);
+}
+
+[data-theme='light'] {
+  --bg: #f4f6fb;
+  --bg-raised: #ffffff;
+  --surface: rgba(255, 255, 255, 0.75);
+  --surface-solid: #ffffff;
+
+  --ink: #0d1526;
+  --ink-2: #374151;
+  --muted: #6b7280;
+
+  --line: rgba(0, 0, 0, 0.09);
+  --line-hover: rgba(3, 105, 161, 0.32);
+
+  --accent: #4f46e5;
+  --accent-2: #0369a1;
+  --accent-glow: rgba(3, 105, 161, 0.12);
+  --accent-ink: #ffffff;
+
+  --grid: rgba(3, 105, 161, 0.05);
+  --nav-bg: rgba(244, 246, 251, 0.88);
+}
+
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+:root {
+  --font: 'Inter Variable', 'Inter', system-ui, sans-serif;
+
+  --fs-xs: clamp(0.75rem, 1.5vw, 0.8125rem);
+  --fs-sm: clamp(0.875rem, 1.8vw, 0.9375rem);
+  --fs-body: clamp(1rem, 2vw, 1.0625rem);
+  --fs-lg: clamp(1.125rem, 2.5vw, 1.25rem);
+  --fs-h3: clamp(1.2rem, 3vw, 1.5rem);
+  --fs-h2: clamp(1.75rem, 4vw, 2.5rem);
+  --fs-h1: clamp(2.75rem, 7vw, 5rem);
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1.25rem;
+  --space-lg: 2rem;
+  --space-xl: 3.5rem;
+  --space-2xl: 6rem;
+
+  /* Layout */
+  --maxw: 70rem;
+  --maxw-text: 54rem;
+  --radius-sm: 6px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  /* Nav */
+  --nav-h: 4rem;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 200ms;
+  --dur-slow: 400ms;
+}

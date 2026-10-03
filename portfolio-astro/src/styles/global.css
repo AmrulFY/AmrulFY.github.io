@@ -1,0 +1,233 @@
+/* =============================================
+   GLOBAL STYLES — AmrulFY Portfolio
+   ============================================= */
+
+/* --- Reset & Box Model --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Base --- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--ink);
+  background-color: var(--bg);
+  transition:
+    background-color var(--dur-slow) var(--ease),
+    color var(--dur-slow) var(--ease);
+  overflow-x: hidden;
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+h2 {
+  font-size: var(--fs-h2);
+}
+h3 {
+  font-size: var(--fs-h3);
+}
+
+p {
+  max-width: 62ch;
+  color: var(--ink-2);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--dur) var(--ease);
+}
+a:hover {
+  color: var(--accent-2);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* --- Layout utilities --- */
+.container {
+  width: min(100% - 2.5rem, var(--maxw));
+  margin-inline: auto;
+}
+
+section {
+  padding-block: clamp(4.5rem, 10vw, 7.5rem);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  cursor: pointer;
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.btn:hover {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+.btn.ghost:hover {
+  background: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* --- Section heading with accent bar --- */
+.section-label {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+/* --- Card base (glassmorphism) --- */
+.card-glass {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    transform var(--dur-slow) var(--ease);
+}
+
+.card-glass:hover {
+  border-color: var(--line-hover);
+  box-shadow: 0 8px 40px var(--accent-glow);
+  transform: translateY(-4px);
+}
+
+/* --- Accessibility --- */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip:focus {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  z-index: 9999;
+  background: var(--surface-solid);
+  color: var(--ink);
+  border: 2px solid var(--accent);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- Scroll reveal animations --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  animation: fadeUp var(--dur-slow) var(--ease) both;
+}
+
+.reveal.in-view {
+  animation-play-state: running;
+}
