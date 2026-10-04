@@ -1,0 +1,160 @@
+---
+// CursorGlow — ambient data-point cursor effect.
+// Glow indigo→sky mengikuti pointer + partikel titik data yang menyebar.
+// Nonaktif otomatis di layar sentuh & prefers-reduced-motion.
+---
+
+<div class="cursor-glow" aria-hidden="true">
+  <div class="cursor-orb"></div>
+  <div class="cursor-particles"></div>
+</div>
+
+<style>
+  .cursor-glow {
+    display: none;
+  }
+
+  /* Hanya perangkat dengan mouse/trackpad presisi */
+  @media (pointer: fine) {
+    .cursor-glow {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .cursor-orb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      margin: -100px 0 0 -100px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        var(--accent-glow) 0%,
+        transparent 65%
+      );
+      opacity: 0;
+      transition: opacity 400ms var(--ease);
+    }
+
+    .cursor-glow.is-active .cursor-orb {
+      opacity: 1;
+    }
+
+    .cursor-particles {
+      position: absolute;
+      inset: 0;
+    }
+
+    .cursor-particles span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-glow {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const host = document.querySelector('.cursor-glow');
+  const orb = host?.querySelector<HTMLElement>('.cursor-orb');
+  const layer = host?.querySelector<HTMLElement>('.cursor-particles');
+
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+  const reducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
+
+  if (host && orb && layer && finePointer && !reducedMotion) {
+    const accent = getComputedStyle(document.documentElement)
+      .getPropertyValue('--accent')
+      .trim();
+    const accent2 = getComputedStyle(document.documentElement)
+      .getPropertyValue('--accent-2')
+      .trim();
+
+    let x = -9999;
+    let y = -9999;
+    let ox = x;
+    let oy = y;
+    let lastSpawn = 0;
+    let raf = 0;
+
+    const render = () => {
+      // Lerp: orb mengejar pointer dengan jeda pegas halus
+      ox += (x - ox) * 0.12;
+      oy += (y - oy) * 0.12;
+      orb.style.transform = `translate(${ox}px, ${oy}px)`;
+      raf = requestAnimationFrame(render);
+    };
+
+    const spawn = (px: number, py: number) => {
+      if (layer.childElementCount > 50) return;
+      const dot = document.createElement('span');
+      const color = Math.random() > 0.5 ? accent : accent2;
+      const size = 3 + Math.random() * 4;
+      const dx = (Math.random() - 0.5) * 90;
+      const dy = -30 - Math.random() * 80;
+      dot.style.width = `${size}px`;
+      dot.style.height = `${size}px`;
+      dot.style.background = color;
+      dot.style.boxShadow = `0 0 10px 2px ${color}`;
+      dot.style.opacity = '1';
+      layer.appendChild(dot);
+      dot
+        .animate(
+          [
+            {
+              transform: `translate(${px}px, ${py}px) scale(1)`,
+              opacity: 1,
+            },
+            {
+              transform: `translate(${px + dx}px, ${py + dy}px) scale(0.3)`,
+              opacity: 0,
+            },
+          ],
+          {
+            duration: 900 + Math.random() * 500,
+            easing: 'cubic-bezier(.2,.7,.3,1)',
+          }
+        )
+        .finished.then(() => dot.remove())
+        .catch(() => dot.remove());
+    };
+
+    window.addEventListener(
+      'pointermove',
+      (e) => {
+        x = e.clientX;
+        y = e.clientY;
+        host.classList.add('is-active');
+        if (!raf) render();
+        const now = performance.now();
+        if (now - lastSpawn > 30) {
+          lastSpawn = now;
+          spawn(x, y);
+        }
+      },
+      { passive: true }
+    );
+
+    document.documentElement.addEventListener('mouseleave', () => {
+      host.classList.remove('is-active');
+      cancelAnimationFrame(raf);
+      raf = 0;
+    });
+  }
+</script>
